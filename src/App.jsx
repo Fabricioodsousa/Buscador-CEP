@@ -1,6 +1,28 @@
+import { useState } from 'react'
 import './App.css'
+import api from './services/api'
+import {ToastContainer, toast} from 'react-toastify'
 
 function App() {
+
+  const [input, setInput] = useState('')
+  const [cep, setCep] = useState({})
+
+  async function CepSearch() {
+    if(input.trim() === ''){
+      toast.warn("Digite um CEP")
+      return
+    }
+    try{
+      const response = await api.get(`${input}/json`)
+      setCep(response.data)
+      setInput("")
+
+    }catch{
+      toast.error("Erro ao buscar CEP")
+      setInput("")
+    }
+  }
 
   return (
     <>
@@ -8,18 +30,20 @@ function App() {
         <h1>Buscar CEP</h1>
 
         <div className='containerInput'>
-          <input className='inputCep' type="text" placeholder='Digite o CEP' />
-          <button className='buttonCep'>Buscar</button>
+          <input className='inputCep' type="text" placeholder='Digite o CEP' value={input} onChange={(event)=> setInput(event.target.value)}/>
+          <button className='buttonCep' onClick={CepSearch}>Buscar</button>
         </div>
 
-        <div className='containerInfo'>
-          <h2>CEP: </h2>
-          <p>Rua:</p>
-          <p>Complemento:</p>
-          <p>Bairro:</p>
-          <p>Localidade:</p>
-        </div>
+        {Object.keys(cep).length > 0 && (
+          <div className='containerInfo'>
+            <h2>CEP: {cep.cep} </h2>
+            <p>{cep.logradouro}</p>
+            <p>{cep.bairro}</p>
+            <p>{cep.localidade} - {cep.uf}:</p>
+          </div>
+        )}
 
+        <ToastContainer/>
       </div>
     </>
   )
