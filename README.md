@@ -1,12 +1,43 @@
-# React + Vite
+# Buscador de CEP com React
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação desenvolvida com **React** para buscar informações de endereço a partir do **CEP** digitado pelo usuário.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funcionalidades
 
-## Expanding the ESLint configuration
+- Busca de endereço por CEP
+- Notificações de erro com **React Toastify** 
+- Consumo de API pública  
+- Validação de entrada  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+---
+
+## Tecnologias Utilizadas
+
+- [React](https://reactjs.org/)
+- [Axios](https://axios-http.com/) — requisições HTTP
+- [React Toastify](https://fkhadra.github.io/react-toastify/) — exibição de notificações
+- [ViaCEP API](https://viacep.com.br/) — busca de dados por CEP
+
+---
+
+## Aprendizados
+
+Durante o desenvolvimento deste projeto, aprofundei meus conhecimentos em:
+
+- Componentes funcionais
+- Hooks (`useState`, `useEffect`)
+- Requisições HTTP com Axios
+- Tratamento de erros e feedback visual com Toastify
+- Estrutura e organização de projetos React
+
+---
+
+## Demonstração
+![image](https://github.com/user-attachments/assets/9e336801-7ef1-4a5d-8514-286a5c9a85b5)
+
+
+
+
